@@ -4,14 +4,14 @@ import java.util.Date;
 import java.util.List;
 
 public class ExpenseResponseDto {
-    private Long userId;
+    private String userId;
     private String description;
     private double amount;
     private Date date;
     private List<String> tags;
 
     public ExpenseResponseDto(
-            Long userId,
+            String userId,
             String description,
             double amount,
             Date date,
@@ -25,11 +25,11 @@ public class ExpenseResponseDto {
     }
 
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

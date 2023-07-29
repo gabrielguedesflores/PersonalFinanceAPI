@@ -29,7 +29,7 @@ public class ExpenseController {
     @PostMapping(value = "/expense")
     @Operation(summary = "Cadastrar uma despesa")
     public ResponseEntity<ExpenseResponseDto> createExpense(@RequestBody ExpenseRequestDto request) {
-        Long userId = request.getUserId();
+        String userId = request.getUserId();
         String description = request.getDescription();
         double amount = request.getAmount();
         List<String> tags = request.getTags();

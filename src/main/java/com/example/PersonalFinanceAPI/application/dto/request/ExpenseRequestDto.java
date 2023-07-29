@@ -4,13 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 public class ExpenseRequestDto {
-    private Long userId;
+    private String userId;
     private String description;
     private double amount;
     private Date date;
     private List<String> tags;
     public ExpenseRequestDto() {}
-    public ExpenseRequestDto(Long userId, String description, double amount, Date date, List<String> tags) {
+    public ExpenseRequestDto(String userId, String description, double amount, Date date, List<String> tags) {
         this.userId = userId;
         this.description = description;
         this.amount = amount;
@@ -19,11 +19,11 @@ public class ExpenseRequestDto {
     }
 
     // Getters e Setters
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

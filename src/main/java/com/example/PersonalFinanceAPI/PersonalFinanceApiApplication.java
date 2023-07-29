@@ -1,6 +1,7 @@
 package com.example.PersonalFinanceAPI;
 
 import com.example.PersonalFinanceAPI.domain.services.ExpenseService;
+import com.example.PersonalFinanceAPI.domain.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,5 +18,7 @@ public class PersonalFinanceApiApplication {
 
 	@Autowired
 	private ExpenseService expenseService;
+	@Autowired
+	private UserService userService;
 
 }

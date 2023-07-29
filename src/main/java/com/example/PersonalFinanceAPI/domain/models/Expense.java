@@ -11,13 +11,13 @@ public class Expense {
 
     @Id
     private String id;
-    private Long userId;
+    private String userId;
     private String description;
     private double amount;
     private Date date;
     private List<String> tags;
 
-    public Expense(Long userId, String description, double amount, Date date, List<String> tags) {
+    public Expense(String userId, String description, double amount, Date date, List<String> tags) {
         this.userId = userId;
         this.description = description;
         this.amount = amount;

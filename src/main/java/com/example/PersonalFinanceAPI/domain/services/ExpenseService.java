@@ -13,7 +13,7 @@ public class ExpenseService {
     @Autowired
     private ExpenseRepository expenseRepository;
 
-    public Expense saveExpense(Long userId, String description, double amount, Date date, List<String> tags) {
+    public Expense saveExpense(String userId, String description, double amount, Date date, List<String> tags) {
 
         if (tags == null) {
             tags = List.of();

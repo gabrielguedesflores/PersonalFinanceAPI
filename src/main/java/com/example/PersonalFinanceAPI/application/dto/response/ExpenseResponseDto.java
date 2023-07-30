@@ -1,9 +1,13 @@
 package com.example.PersonalFinanceAPI.application.dto.response;
 
+import org.springframework.data.annotation.Id;
+
 import java.util.Date;
 import java.util.List;
 
 public class ExpenseResponseDto {
+    @Id
+    private String expenseId;
     private String userId;
     private String description;
     private double amount;
@@ -11,12 +15,14 @@ public class ExpenseResponseDto {
     private List<String> tags;
 
     public ExpenseResponseDto(
+            String expenseId,
             String userId,
             String description,
             double amount,
             Date date,
             List<String> tags
     ) {
+        this.expenseId = expenseId;
         this.userId = userId;
         this.description = description;
         this.amount = amount;
@@ -24,6 +30,13 @@ public class ExpenseResponseDto {
         this.tags = tags;
     }
 
+    public String getExpenseId() {
+        return expenseId;
+    }
+
+    public void setExpenseId(String expenseId) {
+        this.expenseId = expenseId;
+    }
 
     public String getUserId() {
         return userId;

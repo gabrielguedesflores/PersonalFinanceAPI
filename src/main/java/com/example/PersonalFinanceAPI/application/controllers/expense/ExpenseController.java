@@ -63,16 +63,7 @@ public class ExpenseController {
         double amount = request.getAmount();
         List<String> tags = request.getTags();
         Date date = new Date();
-
         Expense expense = this.expenseService.saveExpense(userId, description, amount, date, tags);
-//        ExpenseResponseDto responseDto = new ExpenseResponseDto(
-//                userId,
-//                description,
-//                amount,
-//                date,
-//                tags
-//        );
-
         return ResponseEntity.status(HttpStatus.CREATED).body(expense);
     }
 

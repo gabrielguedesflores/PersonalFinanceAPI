@@ -25,6 +25,11 @@ public class UserService {
         return userOptional.orElse(null);
     }
 
+    public User findUserByEmailAndPassword(String userEmail, String userPassword) {
+        Optional<User> userOptional = userRepository.findByUserEmailAndUserPassword(userEmail, userPassword);
+        return userOptional.orElse(null);
+    }
+
     public CreateUserResponseDto saveUser(String userName, String userEmail, String userPassword, Date userDateLastUpdated) {
         try {
             User newUser = new User(userName, userEmail, userPassword, userDateLastUpdated);

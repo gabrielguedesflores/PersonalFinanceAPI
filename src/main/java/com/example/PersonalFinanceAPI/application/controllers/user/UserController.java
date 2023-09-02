@@ -1,5 +1,6 @@
 package com.example.PersonalFinanceAPI.application.controllers.user;
 
+import com.example.PersonalFinanceAPI.application.dto.request.LoginRequestDto;
 import com.example.PersonalFinanceAPI.application.dto.request.UserRequestDto;
 import com.example.PersonalFinanceAPI.application.dto.response.CreateUserResponseDto;
 import com.example.PersonalFinanceAPI.application.dto.response.FindUserResponseDto;
@@ -101,6 +102,29 @@ public class UserController {
         this.userService.deleteUser(userId);
 
         return ResponseEntity.noContent().build();
+    }
+
+    //endpoint temporario para login, o login sera feito em um microservico usando kafka
+    @PostMapping(value = "/login")
+    @Operation(summary = "Realizar login do usuário")
+    public ResponseEntity<FindUserResponseDto> loginUser(@RequestBody LoginRequestDto loginRequest) {
+        String userEmail = loginRequest.getUserEmail();
+        String userPassword = loginRequest.getUserPassword();
+
+        User user = this.userService.findUserByEmailAndPassword(userEmail, userPassword);
+        FindUserResponseDto responseDto = new FindUserResponseDto();
+        responseDto = new FindUserResponseDto();
+
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        responseDto.setStatus("SUCCESS");
+        responseDto.setMessage("Usuário encontrado na base de dados.");
+        responseDto.setUser(user);
+
+        return ResponseEntity.ok(responseDto);
+
     }
 
 

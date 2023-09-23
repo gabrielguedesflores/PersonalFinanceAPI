@@ -71,8 +71,8 @@ public class ExpenseController {
     @Operation(summary = "Atualizar uma despesa")
     public ResponseEntity<ExpenseResponseDto> updateExpense(
             @PathVariable String expenseId,
-            @RequestBody ExpenseRequestDto request) {
-
+            @RequestBody ExpenseRequestDto request
+    ) {
         Expense existingExpense = this.expenseService.findExpenseById(expenseId);
 
         if (existingExpense == null) {
@@ -88,6 +88,9 @@ public class ExpenseController {
         }
         if (request.getAmount() != 0.0) {
             existingExpense.setAmount(request.getAmount());
+        }
+        if (request.getDate() != null) {
+            existingExpense.setDate(request.getDate());
         }
         if (request.getTags() != null) {
             existingExpense.setTags(request.getTags());
